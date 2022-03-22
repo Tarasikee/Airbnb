@@ -17,7 +17,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 DJANGO_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -25,11 +24,18 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-PROJECT_APPS = [
-    'users.apps.UsersConfig'
+THIRDPARTY_APPS = [
+    # Admin design
+    'admin_interface', 'colorfield',
+    'django.contrib.admin',
 ]
 
-INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
+PROJECT_APPS = [
+    'users.apps.UsersConfig',
+    'rooms.apps.RoomsConfig',
+]
+
+INSTALLED_APPS = DJANGO_APPS + THIRDPARTY_APPS + PROJECT_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -59,6 +65,10 @@ TEMPLATES = [
         },
     },
 ]
+
+XX_FRAME_OPTIONS = "SAMEORIGIN"
+
+SILENCED_SYSTEM_CHECKS = ["security.W019"]
 
 WSGI_APPLICATION = 'AirBNB.wsgi.application'
 
@@ -106,6 +116,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATIC_ROOT = '/colorful/'
 STATIC_URL = '/static/'
 
 # Default primary key field type
