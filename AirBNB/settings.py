@@ -25,14 +25,18 @@ DJANGO_APPS = [
 ]
 
 THIRDPARTY_APPS = [
+    'django_countries',
     # Admin design
     'admin_interface', 'colorfield',
     'django.contrib.admin',
 ]
 
 PROJECT_APPS = [
+    'core.apps.CoreConfig',
     'users.apps.UsersConfig',
     'rooms.apps.RoomsConfig',
+    'reviews.apps.ReviewsConfig',
+    'reservations.apps.ReservationsConfig'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRDPARTY_APPS + PROJECT_APPS
@@ -67,6 +71,7 @@ TEMPLATES = [
 ]
 
 XX_FRAME_OPTIONS = "SAMEORIGIN"
+X_FRAME_OPTIONS = 'ALLOWALL'
 
 SILENCED_SYSTEM_CHECKS = ["security.W019"]
 
